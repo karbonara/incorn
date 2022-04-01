@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Инкор</title>
+    <style>
+        .slider {
+            width: 80vw;
+            margin: 0 auto;
+            padding-top: 150px;
+          position: relative;
+          overflow: hidden;
+        }
+    .slider__item p {
+        font-size: 18px;
+    }
+        .slider__wrapper {
+          display: flex;
+          justify-content: space-between;
+          transition: transform 0.6s ease;
+        }
+    
+        .slider__item {
+          flex: 0 0 33.333333%;
+          /* max-width: 33.333333%; */
+        }
+    
+        .slider__control {
+          /* position: absolute; */
+          top: 50%;
+          display: none;
+          align-items: center;
+          justify-content: center;
+          width: 40px;
+          color: #fff;
+          text-align: center;
+          opacity: 0.5;
+          height: 50px;
+          transform: translateY(-50%);
+          background: rgba(0, 0, 0, .5);
+        }
+    
+        .slider__control_show {
+          display: flex;
+        }
+    
+        .slider__control:hover,
+        .slider__control:focus {
+          color: #fff;
+          text-decoration: none;
+          outline: 0;
+          opacity: .9;
+        }
+    
+        .slider__control_left {
+          left: 0;
+        }
+    
+        .slider__control_right {
+          right: 0;
+        }
+    
+        .slider__control::before {
+          content: '';
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          background: transparent no-repeat center center;
+          background-size: 100% 100%;
+        }
+    
+        .slider__control_left::before {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+        }
+    
+        .slider__control_right::before {
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+        }
+    
+        .slider__item>div {
+          line-height: 250px;
+          font-size: 100px;
+          text-align: center;
+        }
+      </style>
+</head>
+<body>
+    <header class="header__main">
+        <div class="video-container">
+            <video class="video" src="world.mp4" autoplay muted loop></video>
+        </div>
+        <div class="header__main-container container header__main-container-index">
+            <div class="header__wrapper">
+                <div class="header__logo">ИНКОР</div>
+                <div class="hamburger-menu">
+                    <input id="menu__toggle" type="checkbox" />
+                    <label class="menu__btn" for="menu__toggle">
+                      <span></span>
+                    </label>
+                    <ul class="menu__box">
+                      <li><a class="menu__item" href="index.html">Главная</a></li>
+                      <li><a class="menu__item" href="company.html">О компании</a></li>
+                      <li><a class="menu__item" href="catalog.html">Каталог</a></li>
+                      <li><a class="menu__item" href="project.html">Проекты</a></li>
+                      <li><a class="menu__item" href="news.html">Новости</a></li>
+                      <li><a class="menu__item" href="contact.html">Контакты</a></li>
+                    </ul>
+                  </div>
+                  <div class="nav__main">
+                      <ul class="nav">
+                        <li class="nav-item">
+                          <a class="nav-link text-light" href="index.html">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link text-light" href="company.html">О компании</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link text-light" href="catalog.html">Каталог</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="project.html">Проекты</a>
+                          </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="news.html">Новости</a>
+                          </li>
+                          <li class="nav-item">
+                            <a class="nav-link text-light" href="contact.html">Контакты</a>
+                          </li>
+                      </ul>
+                  </div>
+                  <a class="search-mobile" href="#">
+                    <img src="img/search-mobile.png" alt="">
+                </a>
+                <a class="search-desktop" href="#">
+                    <img src="img/search-desktop.png" alt="">
+                </a>
+            </div>
+           
+            <div class="">
+                <div>
+                    <a class="header__bg-logo" href="#">
+                        <img src="img/bg-mobile.png" alt="">
+                    </a>
+                </div>
+                <div class="header__tongues">
+                    <a class="header__tongue text-primary" href="#">RUS</a>
+                    <a class="header__tongue header__tongue-no-active" href="#">ENG</a>
+                    <a class="header__tongue header__tongue-no-active" href="#">中文</a>
+                </div>
+            </div>
+        </div>
+        <a class="logo-desktop" href="#">
+            <img src="img/logo-desktop.png" alt="">
+        </a>
+        <div>
+            <a class="mouse-btn" href="#">
+                <img src="img/mouse.png" alt="">
+            </a>
+        </div>
+        <div>
+            <a class="mouse-btn mouse-btn-mob" href="#">
+                <img src="img/mouse-mobile.png" alt="">
+            </a>
+        </div>
+    </header>
+    <main>
+        <section class="company__main">
+            <div class="company__text-main">
+                <div class="company__text-info figure-1">
+                    <h2>О компании</h2>
+            <p class="company__text-intro">Компания ООО «ИНКОР» - современная, динамично 
+                развивающаяся компания. Коллектив компании имеет 
+                солидный многолетний опыт работы на рынке охранных и пожарных 
+                систем, систем видеонаблюдения и контроля доступа. <br> <br>
+                Все сотрудники 
+                имеют многолетний опыт работы на рынке систем безопасности, прошли 
+                специализированное обучение по системам ОПС, видеонаблюдения, домофонных 
+                систем и пр. <br> <br>
+                Персонал посещает семинары компаний-производителей для обучения новой 
+                продукции.  <br> <br>
+                Компания ООО «ИНКОР» - является официальным дилером крупных компаний–производителей и 
+                поставщиков оборудования для систем безопасности, что позволяет поставлять широкий ассортимент 
+                оборудования высокого качества по приемлемым ценам.</p>
+                <a class="company-btn company-btn-main" href="#">Подробнее</a>
+                </div>
+                <div class="company__img-main">
+                    <picture>
+                        <source srcset="img/company-video-mob.png" media="(max-width: 1000px)">
+                        <img class="company__img" src="img/company-video.png" alt="">
+                    </picture>
+                </div>
+            </div>
+        </section>
+        <section class="catalog__main container">
+            <h2 class="catalog__title">Каталог продукции</h2>
+            <div class="catalog__items">
+                <a href="#" class="catalog__item">
+                    <div class="catalog__img catalog-building"></div>
+                    <p>Производство блочно- модульных конструкций</p>
+                </a>
+                <a href="#" class="catalog__item">
+                    <div class="catalog__img catalog-ar-camera"></div>
+                    <p>Видеонаблюдение и безопасность</p>
+                </a>
+                <a href="#" class="catalog__item">
+                    <div class="catalog__img catalog-fire"></div>
+                    <p>Пожаротушение</p>
+                </a>
+                <a href="#" class="catalog__item">
+                    <div class="catalog__img catalog-padlock"></div>
+                    <p>СКУД, контроль доступа</p>
+                </a>
+                <a href="#" class="catalog__item">
+                    <div class="catalog__img catalog-antique"></div>
+                    <p>Сетевое оборудование и телефонизация</p>
+                </a>
+                <a href="#" class="catalog__item">
+                    <div class="catalog__img catalog-lamp"></div>
+                    <p>Освещение и подстветка</p>
+                </a>
+                <a href="#" class="catalog__item">
+                    <div class="catalog__img catalog-gadget"></div>
+                    <p>Расходные материалы</p>
+                </a>
+                <a href="catalog.html" class="catalog__item catalog__item-link">
+                    <p class="company-btn text-white btn-index">Вся продукция</p>
+                </a>
+            </div>
+        </section>
+        <section class="projects figure-2">
+            <h2 class="catalog__title">Реализованные проекты</h2>
+            <div class="projects__slider">
+            <div class="projects__slider-main-info">
+                <picture>
+                    <source srcset="img/Сибур-slider-mob.png" media="(max-width: 800px)">
+                    <img class="projects__slider-img" src="img/Сибур-slider.png" alt="">
+                </picture>
+                <div class="projects__slider-text">
+                    <p>ЗапСибНефтехим</p>
+                    <p class="projects__slider-text-info">ЗапСибНефтехим — строящийся в Тобольске 
+                        нефтехимический комбинат группы «СИБУР». 
+                        Является крупнейшим нефтехимическим проектом в 
+                        России с 1991 года. Проект реализуется в рамках масштабной 
+                        государственной программы, предусмотренной в государственном Плане 
+                        развития газо- и нефтехимии до 2030 года. Компания “ИНКОР ТРЕЙД” осуществила 
+                        поставку систем пожаротушения: дренчерного, водяного, спринклерного, пенного, 
+                        порошкового оборудования. Проект предполагал не только поставку, но и шефмонтажные 
+                        работы, а также тестирование системы пожаротушения.</p>
+                        <p>ЗапСибНефтехим — строящийся в Тобольскенефтехимический комбинат группы «СИБУР»..</p>
+                        <a class="company-btn" href="#">Подробнее</a>
+                </div>
+            </div>
+                <div>
+                    <img class="projects__mob" src="img/Сибур-slider-2.png" alt="">
+                </div>
+            </div>
+        </section>
+        <section class="sertificat__main">
+            <h2 class="pb-4">Лицензии и сертификаты</h2>
+            <div class="sertificat__items">
+                <div>
+                    <picture>
+                        <source srcset="img/sert-mob.png" media="(max-width: 900px)">
+                        <img class="sertificat__items-img" src="img/sert-1.png" alt="">
+                    </picture>
+                    <p>ИСО 14001-2016</p>
+                </div>
+                <div class="sertificat__item-mobile">
+                    <picture>
+                        <source srcset="img/sert-mob.png" media="(max-width: 900px)">
+                        <img class="sertificat__items-img" src="img/sert-1.png" alt="">
+                    </picture>
+                    <p>ИСО 14001-2016</p>
+                </div>
+                <div class="sertificat__item-mobile">
+                    <picture>
+                        <source srcset="img/sert-mob.png" media="(max-width: 900px)">
+                        <img class="sertificat__items-img" src="img/sert-1.png" alt="">
+                    </picture>
+                    <p>ИСО 14001-2016</p>
+                </div>
+            </div>
+            <div class="btn-slider-main">
+                <div class="d-flex justify-content-end">
+                    <button class="border p-3">
+                        <svg class="bi bi-chevron-left" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                          </svg>
+                    </button>
+                    <button class="border p-3">
+                        <svg class="bi bi-chevron-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                          </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <div class="slider">
+            <div class="slider__wrapper">
+              <div class="slider__item">
+                <div>
+                    <picture>
+                        <source srcset="img/sert-mob.png" media="(max-width: 900px)">
+                        <img class="sertificat__items-img" src="img/sert-1.png" alt="">
+                    </picture>
+                    <p>ИСО 14001-2016</p>
+                </div>
+              </div>
+              <div class="slider__item">
+                <div>
+                    <picture>
+                        <source srcset="img/sert-mob.png" media="(max-width: 900px)">
+                        <img class="sertificat__items-img" src="img/sert-1.png" alt="">
+                    </picture>
+                    <p>ИСО 14001-2016</p>
+                </div>
+              </div>
+              <div class="slider__item">
+                <div>
+                    <picture>
+                        <source srcset="img/sert-mob.png" media="(max-width: 900px)">
+                        <img class="sertificat__items-img" src="img/sert-1.png" alt="">
+                    </picture>
+                    <p>ИСО 14001-2016</p>
+                </div>
+              </div>
+              <div class="slider__item">
+                <div>
+                    <picture>
+                        <source srcset="img/sert-mob.png" media="(max-width: 900px)">
+                        <img class="sertificat__items-img" src="img/sert-1.png" alt="">
+                    </picture>
+                    <p>ИСО 14001-2016</p>
+                </div>
+              </div>
+              <div class="slider__item">
+                <div>
+                    <picture>
+                        <source srcset="img/sert-mob.png" media="(max-width: 900px)">
+                        <img class="sertificat__items-img" src="img/sert-1.png" alt="">
+                    </picture>
+                    <p>ИСО 14001-2016</p>
+                </div>
+              </div>
+              <div class="slider__item">
+                <div>
+                    <picture>
+                        <source srcset="img/sert-mob.png" media="(max-width: 900px)">
+                        <img class="sertificat__items-img" src="img/sert-1.png" alt="">
+                    </picture>
+                    <p>ИСО 14001-2016</p>
+                </div>
+              </div>
+              <div class="slider__item">
+                <div>
+                    <picture>
+                        <source srcset="img/sert-mob.png" media="(max-width: 900px)">
+                        <img class="sertificat__items-img" src="img/sert-1.png" alt="">
+                    </picture>
+                    <p>ИСО 14001-2016</p>
+                </div>
+              </div>
+            </div>
+            <div class="slider-control-items">
+                <a class="slider__control slider__control_left" href="#" role="button"></a>
+                <a class="slider__control slider__control_right slider__control_show" href="#" role="button"></a>
+            </div>
+          </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+          <script>
+            'use strict';
+            var multiItemSlider = (function () {
+              return function (selector, config) {
+                var
+                  _mainElement = document.querySelector(selector), // основный элемент блока
+                  _sliderWrapper = _mainElement.querySelector('.slider__wrapper'), // обертка для .slider-item
+                  _sliderItems = _mainElement.querySelectorAll('.slider__item'), // элементы (.slider-item)
+                  _sliderControls = _mainElement.querySelectorAll('.slider__control'), // элементы управления
+                  _sliderControlLeft = _mainElement.querySelector('.slider__control_left'), // кнопка "LEFT"
+                  _sliderControlRight = _mainElement.querySelector('.slider__control_right'), // кнопка "RIGHT"
+                  _wrapperWidth = parseFloat(getComputedStyle(_sliderWrapper).width), // ширина обёртки
+                  _itemWidth = parseFloat(getComputedStyle(_sliderItems[0]).width), // ширина одного элемента    
+                  _positionLeftItem = 0, // позиция левого активного элемента
+                  _transform = 0, // значение транфсофрмации .slider_wrapper
+                  _step = _itemWidth / _wrapperWidth * 100, // величина шага (для трансформации)
+                  _items = []; // массив элементов
+                // наполнение массива _items
+                _sliderItems.forEach(function (item, index) {
+                  _items.push({ item: item, position: index, transform: 0 });
+                });
+        
+                var position = {
+                  getMin: 0,
+                  getMax: _items.length - 1,
+                }
+        
+                var _transformItem = function (direction) {
+                  if (direction === 'right') {
+                    if ((_positionLeftItem + _wrapperWidth / _itemWidth - 1) >= position.getMax) {
+                      return;
+                    }
+                    if (!_sliderControlLeft.classList.contains('slider__control_show')) {
+                      _sliderControlLeft.classList.add('slider__control_show');
+                    }
+                    if (_sliderControlRight.classList.contains('slider__control_show') && (_positionLeftItem + _wrapperWidth / _itemWidth) >= position.getMax) {
+                      _sliderControlRight.classList.remove('slider__control_show');
+                    }
+                    _positionLeftItem++;
+                    _transform -= _step;
+                  }
+                  if (direction === 'left') {
+                    if (_positionLeftItem <= position.getMin) {
+                      return;
+                    }
+                    if (!_sliderControlRight.classList.contains('slider__control_show')) {
+                      _sliderControlRight.classList.add('slider__control_show');
+                    }
+                    if (_sliderControlLeft.classList.contains('slider__control_show') && _positionLeftItem - 1 <= position.getMin) {
+                      _sliderControlLeft.classList.remove('slider__control_show');
+                    }
+                    _positionLeftItem--;
+                    _transform += _step;
+                  }
+                  _sliderWrapper.style.transform = 'translateX(' + _transform + '%)';
+                }
+        
+                // обработчик события click для кнопок "назад" и "вперед"
+                var _controlClick = function (e) {
+                  if (e.target.classList.contains('slider__control')) {
+                    e.preventDefault();
+                    var direction = e.target.classList.contains('slider__control_right') ? 'right' : 'left';
+                    _transformItem(direction);
+                  }
+                };
+        
+                var _setUpListeners = function () {
+                  // добавление к кнопкам "назад" и "вперед" обрботчика _controlClick для событя click
+                  _sliderControls.forEach(function (item) {
+                    item.addEventListener('click', _controlClick);
+                  });
+                }
+        
+                // инициализация
+                _setUpListeners();
+        
+                return {
+                  right: function () { // метод right
+                    _transformItem('right');
+                  },
+                  left: function () { // метод left
+                    _transformItem('left');
+                  }
+                }
+        
+              }
+            }());
+        
+            var slider = multiItemSlider('.slider')
+        
+          </script>
+        <section class="news__main">
+            <div class="news__main-title">
+                <h2>Новости</h2>
+                <a href="#" class="text-muted">Все публикации</a>
+            </div>
+            <div class="news__items">
+                <div class="news__item-main">
+                
+                    <img class="news__item-main-img-1" src="img/news-1.png" alt="">
+                
+                <a class="text-muted" href="news.html">
+                    <div class="news__item-main-intro">
+                        <p>Заголовок новости</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus diam etiam tortor..</p>
+                        <p>15 марта 2020</p>
+                    </div>
+                </a>
+            </div>
+            <div class="news__item">
+
+                    <img src="img/news-2.png" alt="">
+                    <a class="text-muted" href="news.html">
+                        <div class="news__item-intro">
+                            <p>Заголовок новости</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus diam etiam tortor..</p>
+                            <p>15 марта 2020</p>
+                        </div>
+                    </a>
+            </div>
+            <div class="news__item news__item-desct">
+
+                <img src="img/news-2.png" alt="">
+                <a class="text-muted" href="news.html">
+                    <div class="news__item-intro">
+                        <p>Заголовок новости</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus diam etiam tortor..</p>
+                        <p>15 марта 2020</p>
+                    </div>
+                </a>
+        </div>
+            </div>
+            <div class="btn-slider-main mt-4 btn-slider-main-index">
+              <div class="d-flex justify-content-end">
+                  <button class="border p-3">
+                      <svg class="bi bi-chevron-left" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                  </button>
+                  <button class="border p-3">
+                      <svg class="bi bi-chevron-right" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                        </svg>
+                  </button>
+              </div>
+          </div>
+        </section>
+        <section class="container">
+            <div class="map__main">
+                <div class="map__width">
+                    <h2 class="p-4">Контакты</h2>
+                    <p class="pb-4">Остались вопросы? <br> Мы с радостью ответим на них </p>
+                    <div>
+                        <label class="map__placeholder">
+                            <input type="text" placeholder="Ваше имя"> 
+                        </label>
+                        <label class="map__placeholder">
+                            <input type="email" placeholder="E-mail"> 
+                        </label>
+                        <label class="map__text-question">
+                            <input type="text" placeholder="Ваш вопрос"> 
+                        </label>
+                        
+                    </div>
+                    <div class="d-flex">
+                      <label>
+                        <input type="checkbox">
+                        
+                    </label>
+                    <a class="text-muted pl-2 font-size-confidentiality" href="#">Нажимая кнопку Отправить, вы соглашаетесь с Политикой конфиденциальности</a>
+                    </div>
+                    <a class="company-btn mt-4 company-btn-desctop" href="#">Отправить</a>
+                </div>
+                <picture>
+                    <source srcset="img/map-mob.png" media="(max-width: 1000px)">
+                    <img class="map__img" src="img/map.png" alt="">
+                </picture>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container footer__main">
+            <a href="#">
+                <img src="img/footer-logo.png" alt="">
+            </a>
+            <ul class="nav nav-footer">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Проекты</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="company.html">О компании</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="catalog.html">Каталог</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="news.html">Новости</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Контакты</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Политика конфиденциальности</a>
+                  </li>
+              </ul>
+              <div class="footer__contact">
+                <p>+7 (812) 309-73-62</p>
+                <a href="#">
+                    <img src="img/icon-social-1.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="img/icon-social-2.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="img/icon-social-3.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="img/icon-social-4.png" alt="">
+                </a>
+                <a href="#">
+                    <img src="img/icon-social-5.png" alt="">
+                </a>
+              </div>
+              <div class="up-btn">
+                <img src="img/up.png" alt="">
+              </div>
+        </div>
+        <div class="footer-rights">
+            <div class="container">
+                <p>Все права защищены, 2020</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
